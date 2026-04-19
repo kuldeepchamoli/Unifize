@@ -1,0 +1,182 @@
+================================================================================
+                        DAY 1 — DOMAIN IMMERSION NOTES
+                     Unifize Pre-Joining: QMS & Complaints
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: QMS DOMAIN TERMS (20 terms with plain-English definitions)
+--------------------------------------------------------------------------------
+
+1. NCR (Non-Conformance Report)
+   A formal record created when a product, process, or service fails to meet
+   a specified requirement. Think of it as a "something went wrong" ticket
+   that must be investigated and closed with evidence.
+
+2. CAPA (Corrective and Preventive Action)
+   A two-part process: Corrective Action fixes the root cause of an existing
+   problem; Preventive Action stops a similar problem from happening in the
+   future. CAPA is the backbone of continuous improvement in regulated
+   industries.
+
+3. Deviation
+   Any departure from an approved procedure, specification, or standard.
+   Deviations can be planned (intentional, pre-approved) or unplanned
+   (unexpected events that need investigation).
+
+4. Root Cause Analysis (RCA)
+   A systematic method (e.g., 5 Whys, Fishbone/Ishikawa diagram) used to
+   identify the fundamental reason a problem occurred, rather than just
+   treating symptoms.
+
+5. Lot / Batch
+   A defined quantity of product manufactured under uniform conditions.
+   Lot traceability is critical — if a complaint comes in, you need to know
+   exactly which lot was affected and where every unit from that lot went.
+
+6. Supplier Corrective Action Request (SCAR)
+   A formal request sent to a supplier when their material or component
+   causes a quality issue. The supplier must investigate, identify root cause,
+   and provide evidence of corrective action.
+
+7. Complaint (per FDA 21 CFR 820.198)
+   Any written, electronic, or oral communication that alleges deficiencies
+   related to the identity, quality, durability, reliability, safety,
+   effectiveness, or performance of a device after it is released for
+   distribution. Every complaint must be evaluated; some trigger MDRs.
+
+8. MDR (Medical Device Report)
+   A mandatory report filed with the FDA when a device may have caused or
+   contributed to a death or serious injury, or has malfunctioned in a way
+   that could cause harm if the malfunction recurred. Strict timelines apply
+   (30 days, or 5 days for emergencies).
+
+9. 21 CFR Part 11
+   FDA regulation governing electronic records and electronic signatures.
+   Requires audit trails, access controls, and validation of computer systems
+   used in regulated processes. Unifize specifically markets compliance with
+   this regulation.
+
+10. Audit Trail
+    A secure, time-stamped, unalterable log of who did what, when, and why
+    within a system. Required by 21 CFR Part 11. Any change to a regulated
+    record must be traceable.
+
+11. DHR (Device History Record)
+    A compilation of records containing the complete production history of
+    a finished device — proves that the device was manufactured according
+    to the approved Device Master Record (DMR).
+
+12. DMR (Device Master Record)
+    The collection of records that defines the finished device: specifications,
+    production processes, quality procedures, labeling, and packaging.
+
+13. Design Control
+    A systematic set of practices and procedures (per 21 CFR 820.30) used
+    during product development to ensure design outputs meet design inputs.
+    Includes design reviews, verification, validation, and transfer.
+
+14. Validation
+    Documented evidence that a process, system, or method consistently
+    produces a result meeting predetermined specifications. Process validation,
+    software validation, and cleaning validation are common types.
+
+15. OOS (Out of Specification)
+    A test result that falls outside the accepted criteria. OOS results
+    trigger investigations — you cannot simply re-test until you get a
+    passing result.
+
+16. FMEA (Failure Mode and Effects Analysis)
+    A proactive risk assessment tool that identifies potential failure modes
+    in a process or product, rates their severity, occurrence, and
+    detectability, and prioritizes actions to reduce risk.
+
+17. QMS (Quality Management System)
+    The overarching framework of policies, processes, procedures, and records
+    that an organization uses to ensure its products and services consistently
+    meet customer and regulatory requirements. ISO 13485 is the QMS standard
+    for medical devices.
+
+18. 483 Observation
+    A form (FDA Form 483) issued by an FDA inspector at the end of a facility
+    inspection listing observed conditions that may violate the FD&C Act.
+    Companies must respond with corrective actions. Repeated 483s can lead
+    to Warning Letters.
+
+19. Warning Letter
+    A formal FDA communication stating that a company is in significant
+    violation of regulations. More serious than a 483 — public, and failure
+    to respond adequately can lead to consent decrees, injunctions, or
+    import alerts.
+
+20. Change Control
+    A formal process for proposing, reviewing, approving, and documenting
+    changes to validated processes, equipment, materials, or documents.
+    Prevents uncontrolled changes that could introduce quality risks.
+
+--------------------------------------------------------------------------------
+SECTION 2: USER PAIN POINTS (from G2/Capterra review themes)
+--------------------------------------------------------------------------------
+
+Pain Point 1: Complaint records buried across disconnected systems
+   Users repeatedly mention that before adopting a platform like Unifize,
+   complaint data lived in spreadsheets, email threads, and paper forms.
+   Finding the full history of a complaint — from intake to CAPA closure —
+   required manually stitching together information from 3-4 systems. This
+   slows down FDA response timelines and increases the risk of missing a
+   reportable event.
+
+Pain Point 2: Lack of real-time visibility into open CAPAs and their status
+   Quality managers struggle to answer "how many CAPAs are overdue right now?"
+   without running manual reports. Dashboards and real-time tracking are
+   cited as major reasons for switching to a digital QMS. When CAPAs slip,
+   audit findings pile up.
+
+Pain Point 3: Audit trail gaps and 21 CFR Part 11 compliance anxiety
+   Smaller medical device companies especially worry about whether their
+   current tools (SharePoint, Google Docs, Excel) can withstand an FDA
+   inspection. The inability to prove who changed what, when, and why
+   is a recurring source of stress. Users value Unifize's built-in audit
+   trail and e-signature capabilities because they reduce the burden of
+   proving compliance.
+
+--------------------------------------------------------------------------------
+SECTION 3: WHY RETRIEVAL QUALITY MATTERS FOR REGULATED COMPLAINT RECORDS
+--------------------------------------------------------------------------------
+
+In regulated industries, a missed or incorrectly retrieved complaint record
+can directly lead to patient harm (unreported MDRs), regulatory action
+(FDA Warning Letters citing incomplete complaint files under 21 CFR 820.198),
+and legal liability — making retrieval precision and recall not just a
+software quality metric but a patient safety and compliance requirement
+where errors carry consequences measured in human health outcomes, not just
+user inconvenience.
+
+--------------------------------------------------------------------------------
+SECTION 4: KEY REGULATORY REFERENCES CONSULTED
+--------------------------------------------------------------------------------
+
+- 21 CFR 820.198 — Complaint Files
+  * Requires manufacturers to maintain complaint files and document
+    investigations. If an investigation is not performed, the reason must be
+    documented. Complaints involving possible failure of a device to meet
+    specifications must be reviewed, evaluated, and investigated.
+
+- FDA Form 483 Observations (complaint-related examples):
+  * Common observation: "Complaints were not reviewed, evaluated, and
+    investigated as required" — indicates companies failing to process
+    all incoming complaints.
+  * Common observation: "No written procedures for receiving, reviewing, and
+    evaluating complaints" — basic procedural gap.
+  * Common observation: "Failure to identify complaints that represent
+    events which must be reported to FDA under MDR requirements" — missing
+    the escalation from complaint to MDR.
+
+- FDA Warning Letter themes (complaint-related):
+  * Failure to maintain complete complaint records.
+  * Failure to investigate complaints involving possible device failures.
+  * Failure to identify trends in complaint data.
+  * Inadequate CAPA effectiveness checks after complaint investigations.
+
+================================================================================
+                              END OF DAY 1 NOTES
+================================================================================
