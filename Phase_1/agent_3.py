@@ -62,7 +62,7 @@ model = ChatGroq(model="llama-3.3-70b-versatile", temperature=0).bind_tools(tool
 
 def model_call(state: AgentState) -> AgentState:
     system_prompt = SystemMessage(content=
-                                  "You are my AI assistant, please answer my query to best of ur ability")
+                                  "You are my AI assistant, please answer my query to best of your ability")
     response=model.invoke([system_prompt]+ state["messages"])
     return {"messages": [response]}
 
