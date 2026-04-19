@@ -1,0 +1,234 @@
+DOMAIN RESEARCH: UNIFIZE & MANUFACTURING QUALITY MANAGEMENT
+=============================================================
+Date: 2026-04-13
+
+=====================================
+PART 1: WHAT UNIFIZE SELLS & WHO USES IT
+=====================================
+
+Unifize is a cloud-based Quality Management System (QMS) platform built for
+manufacturing companies — especially those in regulated industries like medical
+devices, pharma, aerospace, and automotive.
+
+Their core product modules:
+  - QMS (Quality Management System): Central hub for managing non-conformances,
+    CAPAs, deviations, change controls, and audit findings — all as linked records
+    with automated workflows.
+  - Complaints Management: Intake, triage, investigate, and resolve customer/internal
+    complaints. Links each complaint to root cause analysis and CAPA actions.
+  - Document Control: Version-controlled SOPs, work instructions, and specs with
+    approval workflows. Ensures everyone works off the latest revision.
+  - Audit Trail: Automatic, tamper-proof log of every action taken on every record —
+    who did what, when, and why. Required for FDA compliance.
+
+Who uses it:
+  - Quality engineers, quality managers, regulatory affairs teams
+  - Manufacturing/production supervisors
+  - Supplier quality engineers
+  - Companies that must comply with FDA 21 CFR Part 11, ISO 9001, ISO 13485,
+    AS9100, or IATF 16949
+
+What G2/Capterra reviewers typically say (synthesized from public review themes):
+  LIKES:
+  - "Replaced our spreadsheet-based CAPA tracking — everything is linked now"
+  - "Audit trail is automatic, we don't have to manually log changes"
+  - "Can configure workflows without IT — quality team owns it"
+  - "Conversations happen inside the record instead of scattered emails"
+  - "Faster complaint closure times — went from 45 days to under 15"
+  DISLIKES:
+  - "Reporting/dashboards could be more customizable"
+  - "Initial setup of workflows takes time to get right"
+  - "Search could be smarter — hard to find old complaints by keyword"
+    (^ THIS is exactly the pain point a RAG agent addresses)
+
+
+=====================================
+PART 2: 20 DOMAIN TERMS — DEFINED
+=====================================
+
+1.  NC (Non-Conformance)
+    A product, process, or material that does not meet its specified requirements.
+    Example from your data: "steel fasteners failed tensile strength testing — 23% below spec"
+
+2.  CAPA (Corrective and Preventive Action)
+    Corrective = fix the problem that already happened.
+    Preventive = stop it from happening again.
+    The formal process: identify issue -> root cause analysis -> implement fix -> verify effectiveness.
+
+3.  Deviation
+    An authorized or unauthorized departure from an approved procedure or specification.
+    Example: using a temperature 5 degrees outside the validated range during production.
+
+4.  Root Cause Analysis (RCA)
+    Systematic investigation to find the fundamental reason a problem occurred.
+    Common methods: 5 Whys, Fishbone (Ishikawa) diagram, Fault Tree Analysis.
+
+5.  SCAR (Supplier Corrective Action Request)
+    Formal request sent to a supplier when their material/component fails to meet spec.
+    Example from your data: "Issued SCAR to supplier. Quarantined remaining lot."
+
+6.  CAR (Corrective Action Request)
+    Similar to SCAR but can be internal or external. A formal document requesting
+    that a problem be investigated and corrected.
+
+7.  MRB (Material Review Board)
+    A cross-functional team that decides the disposition of non-conforming material:
+    use-as-is, rework, scrap, or return to supplier.
+
+8.  Lot / Batch
+    A defined quantity of material produced under uniform conditions. Traceability
+    requires tracking which lot went into which product.
+    Example: "Supplier lot #BT-4421"
+
+9.  Quarantine
+    Physically or logically isolating suspect material so it cannot be used until
+    a disposition decision is made.
+
+10. Disposition
+    The decision on what to do with non-conforming material: scrap, rework,
+    use-as-is (with justification), or return to vendor.
+
+11. Audit Trail
+    An unbroken, chronological record of every action on a quality record.
+    Required by 21 CFR Part 11 — must capture who, what, when, and why.
+
+12. SOP (Standard Operating Procedure)
+    Step-by-step documented instructions for performing a routine activity.
+    Document control ensures only the current approved version is in use.
+
+13. 21 CFR Part 11
+    US FDA regulation governing electronic records and electronic signatures.
+    Key requirements:
+    - Audit trails that cannot be altered
+    - Access controls (user authentication)
+    - Electronic signatures must be legally equivalent to handwritten ones
+    - System validation
+    Applies to: any FDA-regulated company using electronic records (pharma,
+    medical devices, food, biotech).
+
+14. ISO 9001
+    International standard for Quality Management Systems. Requires organizations
+    to have processes for handling non-conformances, taking corrective actions,
+    and continuously improving. CAPA is central to ISO 9001 compliance.
+
+15. ISO 13485
+    Like ISO 9001 but specifically for medical device manufacturers.
+    Stricter requirements for traceability, complaint handling, and risk management.
+
+16. Cpk (Process Capability Index)
+    Statistical measure of how well a process stays within spec limits.
+    Cpk > 1.33 = capable process. Cpk < 1.0 = process is producing defects.
+    Example from your data: "Required process capability study (Cpk > 1.33)"
+
+17. PPAP (Production Part Approval Process)
+    Formal process (common in automotive/aerospace) where a supplier demonstrates
+    they can consistently produce parts that meet all requirements.
+    Example from your data: "Submitted PPAP requirement for all passive components"
+
+18. Incoming Inspection / Incoming QC
+    Testing or examining purchased materials upon receipt, before they enter production.
+    Example: "Incoming tensile test," "visual inspection at dock," "sieve test"
+
+19. Change Control
+    Formal process to evaluate, approve, and document any change to a product,
+    process, or document. Prevents uncontrolled changes that could affect quality.
+
+20. Effectiveness Verification
+    After implementing a CAPA, you must verify it actually worked — did the problem
+    stop recurring? Typically checked 30-90 days after implementation.
+
+
+=====================================
+PART 3: 3 USER PAIN POINTS (IN MY OWN WORDS)
+=====================================
+
+1. FINDING PAST COMPLAINTS IS A NIGHTMARE
+   Quality engineers deal with hundreds or thousands of complaint records over time.
+   When a new complaint comes in, the first question is always: "Have we seen this
+   before?" But complaints are described in free text, using inconsistent terminology
+   (one person writes "cracking," another writes "fracture," another writes "surface
+   failure"). Keyword search fails. So engineers waste hours manually searching, or
+   they miss the connection entirely — and reinvestigate a problem that was already
+   solved. This is the #1 pain point a RAG system can address.
+
+2. ROOT CAUSE ANALYSIS IS REPETITIVE BUT NOT STANDARDIZED
+   Many complaints have similar root causes (supplier quality, process drift, design
+   tolerance), but each engineer writes their RCA differently. There's no easy way
+   to say "show me all complaints where the root cause was similar to this one" or
+   "what CAPA worked last time for this type of supplier defect?" The institutional
+   knowledge lives in people's heads or buried in PDFs.
+
+3. COMPLIANCE DOCUMENTATION IS TIME-CONSUMING AND HIGH-STAKES
+   Every complaint must be documented with: what happened, investigation steps, root
+   cause, CAPA taken, and effectiveness verification. If an FDA auditor pulls a
+   complaint record and any of these fields are incomplete, it's a finding — possibly
+   a warning letter. Quality teams spend enormous time on documentation to avoid
+   regulatory risk, when they'd rather spend that time actually solving problems.
+
+
+=====================================
+PART 4: FDA WARNING LETTER EXAMPLES (COMPLAINT HANDLING FAILURES)
+=====================================
+
+These are real, publicly documented FDA enforcement cases:
+
+Example 1: Abbott / St. Jude Medical (2017) — Cardiac Devices
+  Violation: Failure to investigate complaints about device malfunctions and patient
+  injuries per 21 CFR 820.198 (Complaint Files). Complaints involving serious device
+  failures were closed without adequate investigation. Medical Device Reports (MDRs)
+  were not filed for reportable adverse events.
+  What went wrong: Complaints were classified in ways that avoided triggering
+  mandatory FDA reporting. No root cause analysis performed on device malfunction
+  reports.
+
+Example 2: Philips Respironics (2021-2022) — CPAP / Ventilator Machines
+  Violation: Thousands of complaints over several years about foam degradation and
+  black particles in CPAP machines — but failed to escalate or act on them timely.
+  Cited under 21 CFR 820.198. Inadequate CAPA despite a known recurring problem.
+  Ultimately led to a massive Class I recall affecting millions of devices.
+  What went wrong: Complaint trend data was available for years but the system
+  failed to flag the pattern. This is the textbook case for why complaint retrieval
+  and trend analysis matter — the signal was in the data, but no one connected it.
+
+Example 3: Ranbaxy Laboratories (2008-2014) — Pharmaceutical Manufacturing
+  Violation: Multiple warning letters + consent decree. Failure to investigate
+  out-of-specification (OOS) results per 21 CFR 211.192. CAPA records were either
+  absent or did not address root causes. Batch records and stability data were
+  fabricated. Company paid a $500 million settlement.
+  What went wrong: Systemic quality failure. Complaints and OOS findings were
+  ignored or "tested into compliance" (retesting until a passing result was obtained).
+
+Common failure patterns across FDA warning letters:
+  - Complaints closed without investigation (21 CFR 820.198)
+  - No root cause analysis performed (21 CFR 820.100)
+  - Failure to identify trends from complaint data (21 CFR 820.198(a))
+  - CAPA actions not verified for effectiveness (21 CFR 820.100(a))
+  - Adverse events not reported to FDA (21 CFR 803)
+
+
+=====================================
+PART 5: WHY RETRIEVAL MATTERS FOR THIS DOMAIN
+=====================================
+
+In manufacturing quality management, retrieval matters because every new complaint
+could be a repeat of a solved problem or an early signal of a systemic failure —
+but finding that connection across thousands of free-text records with inconsistent
+terminology is exactly what keyword search fails at and semantic retrieval excels at.
+
+
+=====================================
+CONNECTION TO YOUR DATASET (complaints.csv)
+=====================================
+
+Your 71-record dataset mirrors real QMS data:
+  - 4 root cause categories: supplier_defect, process_failure, design_issue, ambiguous
+  - Each record has: complaint_text (free text), product_area, root_cause_label, capa_summary
+  - The "ambiguous" category (records 67-72) is especially realistic — real complaints
+    often have unclear root causes spanning multiple categories
+  - The language matches what quality engineers actually write: "quarantined,"
+    "issued SCAR," "MRB review," "Cpk > 1.33," "100% inspection"
+
+A RAG agent over this data would let a quality engineer ask:
+  "Have we had similar cracking issues with plastic enclosures before?"
+  "What CAPA worked for supplier-related PCB defects?"
+  "Show me all complaints where root cause was ambiguous"

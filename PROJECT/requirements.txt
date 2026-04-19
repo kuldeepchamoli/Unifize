@@ -1,0 +1,21 @@
+# Core LlamaIndex
+llama-index-core
+
+# Embedding model (OpenAI - needs OPENAI_API_KEY in .env)
+llama-index-embeddings-openai
+# Keep HuggingFace available too, in case you want to A/B test locally
+llama-index-embeddings-huggingface
+
+# Vector store
+llama-index-vector-stores-faiss
+faiss-cpu
+
+# CSV reading
+llama-index-readers-file
+
+# For notebook support
+jupyter
+ipykernel
+
+# Environment variable management
+python-dotenv
