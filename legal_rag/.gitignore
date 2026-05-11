@@ -20,3 +20,6 @@ data/*.parquet
 
 # local DB dumps
 *.sql.bak
+
+# docs are kept local-only (not pushed to GitHub)
+docs/
