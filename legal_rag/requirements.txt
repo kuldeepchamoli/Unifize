@@ -1,0 +1,20 @@
+# Core
+psycopg[binary]==3.2.3       # Postgres driver (modern, replaces psycopg2)
+pgvector==0.3.6              # registers the `vector` type with psycopg
+anthropic==0.39.0            # Claude API client
+python-dotenv==1.0.1         # load .env into os.environ
+
+# Data
+pandas==2.2.3                # tabular ops on the Kaggle CSV
+tqdm==4.67.0                 # progress bars while embedding
+
+# Kaggle (>=2.0 supports the new KAGGLE_API_TOKEN single-token format)
+kaggle>=2.1.1                # CLI + Python client for dataset download
+
+# Embeddings — local, no API key
+sentence-transformers==3.3.1 # wraps HuggingFace models; downloads once, then runs offline
+
+# Docs (optional) — for docs/build_pdf.py. Needs `brew install pango` for system libs.
+markdown==3.10.2
+weasyprint==68.1
+pygments==2.20.0

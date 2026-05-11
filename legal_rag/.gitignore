@@ -1,0 +1,22 @@
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# data — raw dataset files can be huge
+data/raw/
+data/*.zip
+data/*.csv
+data/*.json
+data/*.parquet
+
+# notebooks checkpoints
+.ipynb_checkpoints/
+
+# local DB dumps
+*.sql.bak
