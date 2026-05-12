@@ -1,0 +1,18 @@
+# Postgres + pgvector
+psycopg[binary]==3.2.3
+pgvector==0.3.6
+
+# Claude API
+anthropic==0.39.0
+
+# Env vars
+python-dotenv==1.0.1
+
+# Data
+pandas==2.2.3
+pyarrow==17.0.0           # reads parquet files
+beautifulsoup4==4.12.3    # strips HTML out of raw_html field
+tqdm==4.67.0              # progress bars
+
+# Embeddings — local, no API key
+sentence-transformers==3.3.1
