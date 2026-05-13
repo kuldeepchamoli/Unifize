@@ -1,14 +1,5 @@
 from pathlib import Path
-from bs4 import BeautifulSoup
 import pdfplumber
-
-
-def html_to_text(raw_html: str) -> str:
-    """Strip HTML tags, collapse whitespace."""
-    if not raw_html:
-        return ""
-    text = BeautifulSoup(raw_html, "html.parser").get_text(separator=" ")
-    return " ".join(text.split())
 
 
 def pdf_to_text(pdf_path: Path) -> str:

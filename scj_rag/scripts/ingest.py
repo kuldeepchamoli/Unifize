@@ -29,57 +29,66 @@ def _date(val):
 
 def main(year: int, pdf_dir: Path, limit: int | None):
     parquet_dir = Path(__file__).parent.parent / "data" / "raw" / f"year={year}"
-    df = pd.concat(pd.read_parquet(p) for p in parquet_dir.glob("*.parquet"))
+    df = pd.concat(
+        pd.read_parquet(p) for p in parquet_dir.glob("*.parquet")
+    ).drop_duplicates(subset=["case_id"])
 
     if limit:
         df = df.head(limit)
     print(f"Loaded {len(df)} judgments from {year}")
 
     skipped = 0
-    conn = connect()
-    with conn.cursor() as cur:
-        for _, row in tqdm(df.iterrows(), total=len(df), desc="Judgments"):
-            path_value = _v(row.get("path"))
-            pdf_path = find_pdf(pdf_dir, path_value) if path_value else None
+    with connect() as conn:
+        with conn.cursor() as cur:
+            # Fetch already-ingested case_ids to short-circuit expensive PDF work
+            cur.execute("SELECT case_id FROM judgments")
+            already_done = {r[0] for r in cur.fetchall()}
 
-            if pdf_path is None:
-                skipped += 1
-                continue
+            for _, row in tqdm(df.iterrows(), total=len(df), desc="Judgments"):
+                case_id = _v(row["case_id"])
+                if case_id in already_done:
+                    continue
 
-            full_text = pdf_to_text(pdf_path)
-            if not full_text:
-                skipped += 1
-                continue
+                path_value = _v(row.get("path"))
+                pdf_path = find_pdf(pdf_dir, path_value) if path_value else None
 
-            cur.execute("""
-                INSERT INTO judgments
-                    (case_id, title, petitioner, respondent, judge, author_judge,
-                     citation, decision_date, disposal_nature, court, full_text)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-                ON CONFLICT (case_id) DO NOTHING
-            """, (
-                _v(row["case_id"]), _v(row.get("title")), _v(row.get("petitioner")),
-                _v(row.get("respondent")), _v(row.get("judge")), _v(row.get("author_judge")),
-                _v(row.get("citation")), _date(row.get("decision_date")),
-                _v(row.get("disposal_nature")), _v(row.get("court")), full_text,
-            ))
+                if pdf_path is None:
+                    skipped += 1
+                    continue
 
-            chunks = chunk_text(full_text)
-            if not chunks:
-                continue
-            vectors = embed(chunks)
+                full_text = pdf_to_text(pdf_path)
+                if not full_text:
+                    skipped += 1
+                    continue
 
-            cur.executemany("""
-                INSERT INTO chunks (case_id, chunk_idx, text, embedding)
-                VALUES (%s, %s, %s, %s)
-                ON CONFLICT (case_id, chunk_idx) DO NOTHING
-            """, [
-                (row["case_id"], i, chunk, vec)
-                for i, (chunk, vec) in enumerate(zip(chunks, vectors))
-            ])
-            conn.commit()
+                cur.execute("""
+                    INSERT INTO judgments
+                        (case_id, title, petitioner, respondent, judge, author_judge,
+                         citation, decision_date, disposal_nature, court, full_text)
+                    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                    ON CONFLICT (case_id) DO NOTHING
+                """, (
+                    case_id, _v(row.get("title")), _v(row.get("petitioner")),
+                    _v(row.get("respondent")), _v(row.get("judge")), _v(row.get("author_judge")),
+                    _v(row.get("citation")), _date(row.get("decision_date")),
+                    _v(row.get("disposal_nature")), _v(row.get("court")), full_text,
+                ))
 
-    conn.close()
+                chunks = chunk_text(full_text)
+                if not chunks:
+                    continue
+                vectors = embed(chunks)
+
+                cur.executemany("""
+                    INSERT INTO chunks (case_id, chunk_idx, text, embedding)
+                    VALUES (%s, %s, %s, %s)
+                    ON CONFLICT (case_id, chunk_idx) DO NOTHING
+                """, [
+                    (case_id, i, chunk, vec)
+                    for i, (chunk, vec) in enumerate(zip(chunks, vectors))
+                ])
+                conn.commit()
+
     print(f"Done. Skipped {skipped} judgments (no PDF found or empty text).")
 
 
