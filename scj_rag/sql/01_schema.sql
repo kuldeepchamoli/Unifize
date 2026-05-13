@@ -29,3 +29,7 @@ CREATE TABLE IF NOT EXISTS chunks (
 CREATE INDEX IF NOT EXISTS chunks_embedding_hnsw
     ON chunks USING hnsw (embedding vector_cosine_ops);
 
+-- Idempotent additions: page and paragraph_number for finer-grained citation
+ALTER TABLE chunks ADD COLUMN IF NOT EXISTS page             INTEGER;
+ALTER TABLE chunks ADD COLUMN IF NOT EXISTS paragraph_number INTEGER;
+

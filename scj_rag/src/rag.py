@@ -1,13 +1,14 @@
 import anthropic
-from .config import ANTHROPIC_API_KEY
+from pathlib import Path
+from .config import ANTHROPIC_API_KEY, MODEL, MAX_TOKENS
 from .retrieve import search
+from .usage import log_usage
 
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-SYSTEM = """You are an assistant answering questions about Indian Supreme Court
-judgments from 2025. Use ONLY the provided excerpts. After every factual claim,
-cite the source as [case_id, decision_date]. If the excerpts do not contain the
-answer, say so plainly — do not guess."""
+_PROMPT_FILE = Path(__file__).parent.parent / "prompts" / "f3_poc_v0.0.md"
+SYSTEM = _PROMPT_FILE.read_text().strip()
+
 
 def answer(question: str, k: int = 5) -> str:
     hits = search(question, k=k)
@@ -19,11 +20,16 @@ def answer(question: str, k: int = 5) -> str:
         for h in hits
     )
     prompt = f"Question: {question}\n\nExcerpts:\n{context}\n\nAnswer:"
+    msg = _create_message(prompt)
+    return msg.content[0].text
 
+
+def _create_message(prompt: str):
     msg = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=1024,
+        model=MODEL,
+        max_tokens=MAX_TOKENS,
         system=SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
-    return msg.content[0].text
+    log_usage(MODEL, msg.usage.input_tokens, msg.usage.output_tokens)
+    return msg

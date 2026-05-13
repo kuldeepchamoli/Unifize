@@ -3,7 +3,7 @@ psycopg[binary]==3.2.3
 pgvector==0.3.6
 
 # Claude API
-anthropic==0.39.0
+anthropic==0.101.0
 
 # Env vars
 python-dotenv==1.0.1
@@ -19,3 +19,6 @@ sentence-transformers==3.3.1
 
 # PDF text extraction
 pdfplumber==0.11.4
+
+# Tests
+pytest==8.3.3
