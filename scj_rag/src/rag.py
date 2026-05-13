@@ -2,6 +2,7 @@ import anthropic
 from pathlib import Path
 from .config import ANTHROPIC_API_KEY, MODEL, MAX_TOKENS
 from .retrieve import search
+from .usage import log_usage
 
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
@@ -24,9 +25,11 @@ def answer(question: str, k: int = 5) -> str:
 
 
 def _create_message(prompt: str):
-    return client.messages.create(
+    msg = client.messages.create(
         model=MODEL,
         max_tokens=MAX_TOKENS,
         system=SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
+    log_usage(MODEL, msg.usage.input_tokens, msg.usage.output_tokens)
+    return msg
